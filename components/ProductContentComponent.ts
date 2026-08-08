@@ -11,7 +11,7 @@ export class ProductContentComponent extends BaseComponent {
     }
 }
 
-export class ProductContentBody extends BaseComponent {
+class ProductContentBody extends BaseComponent {
     readonly title: Locator;
     readonly priceContainer: Locator;
     readonly description: Locator;

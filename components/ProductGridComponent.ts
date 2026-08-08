@@ -2,9 +2,6 @@ import { Locator } from "@playwright/test";
 import BaseComponent from "./BaseComponent";
 
 export class ProductGridComponent extends BaseComponent {
-    constructor(container: Locator) {
-        super(container);
-    }
     public getProductCardByCardTitle(text: string) {
         const productCard = new ProductCardComponent(this.container.locator(".col-lg-4", { hasText: text }));
         return productCard;
@@ -16,7 +13,7 @@ export class ProductGridComponent extends BaseComponent {
     }
 }
 
-export class ProductCardComponent extends BaseComponent {
+class ProductCardComponent extends BaseComponent {
     readonly productCardImage: Locator;
     readonly productCardInfoBlock: ProductCardBlockComponent;
     constructor(container: Locator) {
@@ -26,7 +23,7 @@ export class ProductCardComponent extends BaseComponent {
     }
 }
 
-export class ProductCardBlockComponent extends BaseComponent {
+class ProductCardBlockComponent extends BaseComponent {
     readonly title: Locator;
     readonly priceTag: Locator;
     readonly infoParagraph: Locator;
