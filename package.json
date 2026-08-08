@@ -1,0 +1,31 @@
+{
+  "name": "demoblaze-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test && allure serve allure-results",
+    "test:ui": "npx playwright test --ui"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LudmilMarinov/demoblaze-tests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/LudmilMarinov/demoblaze-tests/issues"
+  },
+  "homepage": "https://github.com/LudmilMarinov/demoblaze-tests#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.1.2",
+    "allure-playwright": "^3.10.2"
+  },
+  "dependencies": {
+    "allure": "^3.14.3",
+    "dotenv": "^17.4.2"
+  }
+}
