@@ -7,11 +7,11 @@ export default defineConfig({
   forbidOnly: true,
   retries: 2,
   workers: 2,
-  reporter: [["line"], ["allure-playwright"]],
+  reporter: [["list"], ["allure-playwright"]],
   use: {
     trace: "on-first-retry",
 
-    baseURL: "https://demoblaze.com", // can be from .env too
+    baseURL: process.env.BASE_URL || "https://demoblaze.com",
     video: {
       mode: "retain-on-failure",
       size: { width: 1920, height: 1080 },
