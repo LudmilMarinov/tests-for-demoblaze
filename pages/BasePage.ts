@@ -7,5 +7,5 @@ export default abstract class BasePage {
         this.page = page;
     }
 
-    abstract goto(urlParams?: string): Promise<Response | null>;
+    abstract goto(urlParams: string): Promise<Response | null>;
 }

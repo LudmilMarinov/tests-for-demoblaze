@@ -23,7 +23,11 @@ test.beforeEach(async () => {
     const targetTitles = ["Samsung galaxy s6", "HTC One M9"];
     const listProductsBody = await getProductEntities(context);
 
-    targetTitleIds = targetTitles.map((title) => listProductsBody.Items.find((item) => item.title === title));
+    targetTitleIds = targetTitles.map((title) => {
+        const item = listProductsBody.Items.find((i) => i.title === title);
+        if (!item) throw new Error(`Product not found in /entries response: "${title}"`);
+        return item;
+    });
 });
 
 test.afterEach(async () => {

@@ -4,6 +4,6 @@
         "moduleResolution": "NodeNext",
         "module": "NodeNext",
         "types": ["node"],
-        "strictNullChecks": false
+        "strictNullChecks": true
     }
 }

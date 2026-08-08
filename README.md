@@ -49,13 +49,21 @@ No login/credentials are required up front — the tests create their own throwa
 
 ## Running the tests
 
-Run the full suite (all projects: Chromium, Firefox, WebKit) headless, then open the Allure report:
+Run the full suite (all projects: Chromium, Firefox, WebKit) headless:
 
 ```bash
 npm test
 ```
 
-This runs `npx playwright test` followed by `allure serve allure-results`, which builds the report and opens it in your browser. Press `Ctrl+C` to stop the local report server when you're done viewing it.
+A `pretest` hook (via `rimraf`) clears out `allure-results/` before every run, so each report only reflects the latest run and doesn't mix in stale results from a previous one. This is cross-platform and requires no shell-specific commands.
+
+Once the run finishes, view the Allure report with:
+
+```bash
+npm run report
+```
+
+This runs `allure serve allure-results`, which builds the report and opens it in your browser. Press `Ctrl+C` to stop the local report server when you're done viewing it.
 
 Run tests with the Playwright UI mode (interactive, useful for debugging):
 
@@ -95,7 +103,13 @@ npx playwright show-report
 Test runs produce two kinds of artifacts (both git-ignored):
 
 - `test-results/` — Playwright's own run artifacts (traces on first retry, videos retained on failure)
-- `allure-results/` — raw Allure results, turned into a viewable report via `allure serve allure-results` (or `allure generate allure-results` to build a static report)
+- `allure-results/` — raw Allure results, cleared automatically before each `npm test` run, turned into a viewable report via `npm run report` (or `allure generate allure-results` to build a static report)
+
+## Known limitations / what I'd add next
+
+Given the scope of the task, a few things were intentionally left out. Noting them here rather than leaving them silent:
+
+- **No negative-path coverage.** Every test here covers the happy path (valid login, valid category, items that exist). There's nothing yet for a bad login, an empty cart, or an invalid/non-existent category — worth adding if this suite were to grow.
 
 ## Notes on configuration
 

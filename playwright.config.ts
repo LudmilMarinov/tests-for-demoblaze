@@ -5,8 +5,7 @@ export default defineConfig({
     testDir: "./tests",
     fullyParallel: true,
     forbidOnly: true,
-    retries: 2,
-    workers: 2,
+    retries: process.env.CI ? 2 : 0,
     reporter: [["list"], ["allure-playwright"]],
     use: {
         trace: "on-first-retry",
@@ -22,19 +21,16 @@ export default defineConfig({
             name: "api",
             testDir: "./tests/api",
         },
-
         {
             name: "chromium",
             testDir: "./tests/UI",
             use: { ...devices["Desktop Chrome"] },
         },
-
         {
             name: "firefox",
             testDir: "./tests/UI",
             use: { ...devices["Desktop Firefox"] },
         },
-
         {
             name: "webkit",
             testDir: "./tests/UI",
