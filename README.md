@@ -27,23 +27,23 @@ Before you can run the tests you need:
 
 1. **Node.js** (LTS version recommended) and **npm** installed.
 2. Project dependencies installed:
-   ```bash
-   npm install
-   ```
+    ```bash
+    npm install
+    ```
 3. **Playwright browsers** downloaded (Playwright doesn't reuse your system browsers):
-   ```bash
-   npx playwright install
-   ```
+    ```bash
+    npx playwright install
+    ```
 4. An **environment file**. Copy the example file and fill in the values:
 
-   ```bash
-   cp .env.example .env
-   ```
+    ```bash
+    cp .env.example .env
+    ```
 
-   Currently the only variable is:
-   - `BASE_URL` — base URL for the site under test. If left empty, `playwright.config.ts` falls back to `https://demoblaze.com`.
+    Currently the only variable is:
+    - `BASE_URL` — base URL for the site under test. If left empty, `playwright.config.ts` falls back to `https://demoblaze.com`.
 
-   The API test endpoint (`https://api.demoblaze.com`) is hardcoded in [configs/urls.ts](configs/urls.ts).
+    The API test endpoint (`https://api.demoblaze.com`) is hardcoded in [configs/urls.ts](configs/urls.ts).
 
 No login/credentials are required up front — the tests create their own throwaway users at runtime via the API (see `utils/helpers/authentication.ts`).
 

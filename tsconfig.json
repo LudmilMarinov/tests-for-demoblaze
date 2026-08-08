@@ -1,9 +1,9 @@
 {
-  "compilerOptions": {
-    "esModuleInterop": true,
-    "moduleResolution": "NodeNext",
-    "module": "NodeNext",
-    "types": ["node"],
-    "strictNullChecks": false
-  }
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "moduleResolution": "NodeNext",
+        "module": "NodeNext",
+        "types": ["node"],
+        "strictNullChecks": false
+    }
 }
