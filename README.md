@@ -26,15 +26,20 @@ playwright.config.ts   Playwright configuration (projects, reporters, retries, e
 Before you can run the tests you need:
 
 1. **Node.js** (LTS version recommended) and **npm** installed.
-2. Project dependencies installed:
+2. Clone and navigate to the project folder
+    ```bash
+    git clone https://github.com/LudmilMarinov/tests-for-demoblaze.git
+    ```
+    
+3. Project dependencies installed:
     ```bash
     npm install
     ```
-3. **Playwright browsers** downloaded (Playwright doesn't reuse your system browsers):
+4. **Playwright browsers** downloaded (Playwright doesn't reuse your system browsers):
     ```bash
     npx playwright install
     ```
-4. An **environment file**. Copy the example file and fill in the values:
+5. An **environment file**. Copy the example file and fill in the values:
 
     ```bash
     cp .env.example .env
