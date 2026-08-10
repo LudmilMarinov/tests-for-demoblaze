@@ -105,14 +105,19 @@ Test runs produce two kinds of artifacts (both git-ignored):
 - `test-results/` — Playwright's own run artifacts (traces on first retry, videos retained on failure)
 - `allure-results/` — raw Allure results, cleared automatically before each `npm test` run, turned into a viewable report via `npm run report` (or `allure generate allure-results` to build a static report)
 
-## Known limitations / what I'd add next
+## Issues
 
-Given the scope of the task, a few things were intentionally left out. Noting them here rather than leaving them silent:
+There where two issues noticed that listed bellow:
 
-- **No negative-path coverage.** Every test here covers the happy path (valid login, valid category, items that exist). There's nothing yet for a bad login, an empty cart, or an invalid/non-existent category — worth adding if this suite were to grow.
+- Most of the API calls fail silently, they return status code OK and 200, but in the response there is {"errorMessage": .....}.
+- When you press next on the product component on home page, and then go back with previous button a phone Samsung galaxy s6 disappears from the list
 
 ## Notes on configuration
 
 - `fullyParallel: true`, `workers: 2`, `retries: 2` — see [playwright.config.ts](playwright.config.ts) to adjust parallelism/retries.
 - Videos are retained only on failure, recorded at 1920x1080.
 - Traces are captured on first retry only.
+
+## Github Workflows
+- A pipeline was set to run the tests once at 02:00 UTC time
+- The workflow can be ran manually. And provides a report even when the tests are passing check "Actions" section above, the run setup is named "Nightly Playwright Tests"
