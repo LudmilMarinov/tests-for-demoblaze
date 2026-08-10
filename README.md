@@ -109,7 +109,7 @@ Test runs produce two kinds of artifacts (both git-ignored):
 
 There where two issues noticed that listed bellow:
 
-- Most of the API calls fail silently, they return status code OK and 200, but in the response there is {"errorMessage": .....}.
+- Some API calls fail silently, they return status code OK and 200, but in the response there is {"errorMessage": .....}.
 - When you press next on the product component on home page, and then go back with previous button a phone Samsung galaxy s6 disappears from the list
 
 ## Notes on configuration
